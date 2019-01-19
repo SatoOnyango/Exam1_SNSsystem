@@ -32,7 +32,7 @@ if(!empty($_POST)){
         }
         //2.パスワードが一致するか確認
         if(password_verify($password, $record['password'])){
-            $_SESSION['47_LearnSNS']['id'] = $record['id'];
+            $_SESSION['Exam1_SNSsystem']['id'] = $record['id'];
             // timeline.phpに遷移
             header('Location: timeline.php');
             exit();

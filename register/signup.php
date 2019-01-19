@@ -84,11 +84,6 @@ if(!empty($_POST)){
 
 }
 
-
-echo '<pre>';
-var_dump($errors);
-echo '</pre>';
-
 ?>
 
 
