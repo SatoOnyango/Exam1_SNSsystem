@@ -43,17 +43,17 @@ if(!empty($_POST)){
       <div>
         <h2>アカウント情報確認</h2>
         <div class="row">
-          <div class="col-xs-4">
-            <img src="">
+          <div class="col-xs-4 thumbnail">
+            <img src="../user_profile_img/<?php echo htmlspecialchars($img_name); ?>" width="500" class="img-responsive img-thumbnail">
           </div>
           <div class="col-xs-8">
             <div>
               <span>ユーザー名</span>
-              <p class="lead">宮城太郎</p>
+              <p class="lead"><?php echo htmlspecialchars($name); ?></p>
             </div>
             <div>
               <span>メールアドレス</span>
-              <p class="lead">Miyagi@gmail.com</p>
+              <p class="lead"><?php echo htmlspecialchars($email); ?></p>
             </div>
             <div>
               <span>パスワード</span>
@@ -69,5 +69,8 @@ if(!empty($_POST)){
       </div>
     </div>
   </div>
+  <script src="../assets/js/jquery-3.1.1.js"></script>
+  <script src="../assets/js/jquery-migrate-1.4.1.js"></script>
+  <script src="../assets/js/bootstrap.js"></script>
 </body>
 </html>

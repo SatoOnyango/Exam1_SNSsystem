@@ -1,42 +1,58 @@
 <?php
+session_start();
 require('dbconnect.php');
 
 $errors = [];
 
+// POST送信時のみ
 if(!empty($_POST)){
     $email = $_POST['input_email'];
     $password = $_POST['input_password'];
 
-    if($email==''){
+    if($email == ''){
         $errors['email'] = 'blank';
     }
-    if($password==''){
+
+    $count = strlen($password);
+
+    if($password == ''){
         $errors['password'] = 'blank';
     }
-
     if(empty($errors)){
-        //データベースとの照合処理
-        $sql = 'SELECT * FROM `users` WHERE `email` = ?';
+        $sql = 'SELECT * FROM `users` WHERE `email`= ? ';
         $data = [$email];
         $stmt = $dbh->prepare($sql);
         $stmt->execute($data);
-        $record = $stmt->fecth(PDO::FETCH_ASSOC);
-        // メールアドレスでの本人確認
+
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        //メールアドレスでの本人確認
         if($record == false){
             $errors['signin'] = 'failed';
         }
+        //2.パスワードが一致するか確認
+        if(password_verify($password, $record['password'])){
+            $_SESSION['47_LearnSNS']['id'] = $record['id'];
+            // timeline.phpに遷移
+            header('Location: timeline.php');
+            exit();
 
-    }else{
-        $errors['signin'] = 'failed';
+        }else{
+            //認証失敗
+            $errors['signin'] = 'failed';
+        }
     }
 }
 
+
+
 ?>
+<?php include('layouts/header.php'); ?>
 <body>
   <div class="container">
     <div class="row">
-      <div>
-        <h2>サインイン</h2>
+      <div class="col-xs-8 col-xs-offset-2 thumbnail">
+        <h2 class="text-center content_header">サインイン</h2>
         <form method="POST" action="signin.php" enctype="multipart/form-data">
           <div class="form-group">
             <label for="email">メールアドレス</label>
@@ -61,4 +77,5 @@ if(!empty($_POST)){
     </div>
   </div>
 </body>
+<?php include('layouts/header.php'); ?>
 </html>
