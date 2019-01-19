@@ -1,4 +1,32 @@
 <?php
+session_start();
+require('../dbconnect.php');
+
+//正規のルートでここまでこなかったとき、signup.phpに強制的に遷移させる
+if(!isset($_SESSION['Exam1_SNSsystem'])){
+        header('Location: signup.php');
+        exit();
+}
+
+$name = $_SESSION['Exam1_SNSsystem']['name'];
+$email = $_SESSION['Exam1_SNSsystem']['email'];
+$password =  $_SESSION['Exam1_SNSsystem']['password'];
+$img_name = $_SESSION['Exam1_SNSsystem']['img_name'];
+
+//登録ボタンが押されたとき（ポスト送信された時)
+if(!empty($_POST)){
+    $sql = 'INSERT INTO `users`(`name`,`email`,`password`,`img_name`,`created`) VALUES (?,?,?,?,NOW())';
+    $data = [$name,$email,password_hash($password,PASSWORD_DEFAULT),$img_name];
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+
+    unset($_SESSION['Exam1_SNSsystem']);
+    header('Location: thanks.php');
+    exit();
+
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +59,7 @@
               <span>パスワード</span>
               <p class="lead">●●●●●●●●</p>
             </div>
-            <form method="POST" action="thanks.php">
+            <form method="POST" action="check.php">
               <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;戻る</a> | 
               <input type="hidden" name="action" value="submit">
               <input type="submit" class="btn btn-primary" value="ユーザー登録">
