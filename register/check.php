@@ -36,12 +36,13 @@ if(!empty($_POST)){
   <title>Exam1_SNS</title>
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../assets/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div>
-        <h2>アカウント情報確認</h2>
+      <div class="col-xs-10 col-xs-offset-1 thumbnail">
+        <h2 style="margin-left: 100px">アカウント情報確認</h2>
         <div class="row">
           <div class="col-xs-4 thumbnail">
             <img src="../user_profile_img/<?php echo htmlspecialchars($img_name); ?>" width="500" class="img-responsive img-thumbnail">

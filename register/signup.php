@@ -94,30 +94,31 @@ if(!empty($_POST)){
   <title>Exam1_SNS</title>
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../assets/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div class="thumnail">
-        <h2>アカウント作成</h2>
+      <div class="col-xs-6 col-xs-offset-3 thumnail">
+        <h2 class="text-center content_header">アカウント作成</h2>
         <form method="POST" action="signup.php" enctype="multipart/form-data">
-          <div>
+          <div class="form-group">
             <label for="name">ユーザー名</label>
+            <input type="text" name="input_name" value="<?php echo htmlspecialchars($name); ?>" class="form-control">
             <?php if(isset($errors['name']) && $errors['name'] =='blank'): ?>
               <p class="text-danger">ユーザー名を入力してください</p>
             <?php endif; ?>
-            <input type="text" name="input_name" value="<?php echo htmlspecialchars($name); ?>">
           </div>
           <div>
             <label for="email">メールアドレス</label>
-            <input type="email" name="input_email" value="<?php echo htmlspecialchars($email); ?>">
+            <input type="email" name="input_email" value="<?php echo htmlspecialchars($email); ?>" class="form-control">
             <?php if(isset($errors['email']) && $errors['email'] == 'blank'): ?>
               <p class="text-danger">メールアドレスを入力してください</p>
             <?php endif; ?>
           </div>
           <div class="form-group">
             <label for="password">パスワード</label>
-            <input type="password" name="input_password">
+            <input type="password" name="input_password" class="form-control">
             <?php if(isset($errors['password']) && $errors['password'] == 'blank'): ?>
               <p class="text-danger">パスワードを入力してください</p>
             <?php endif; ?>
@@ -128,7 +129,7 @@ if(!empty($_POST)){
               <p class="text-danger">パスワードを再入力してください</p>
             <?php endif; ?>
           </div>
-          <div>
+          <div class="form-group">
             <label for="img_name">プロフィール画像</label>
             <input type="file" name="input_img_name" id="img_name" accept="image/*">
             <?php if(isset($errors['img_name']) && $errors['img_name'] == 'blank'): ?>

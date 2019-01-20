@@ -15,13 +15,14 @@
   <title>Exam1_SNS</title>
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../assets/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div>
+      <div class="col-xs-6 col-xs-offset-3 thumbnail">
         <h2>登録完了</h2>
-        <div>
+        <div class="signin-btn">
           <p>ユーザーアカウントの登録が完了しました。</p>
           <a href="../signin.php" class="btn btn-info">サインイン</a>
         </div>
