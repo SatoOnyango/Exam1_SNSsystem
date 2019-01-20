@@ -9,8 +9,8 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="">
-        <h2 class="">Exam1_SNS</h2>
+      <div class="col-xs-4 col-xs-offset-4 top-body" style="margin-top: 100px;">
+        <h2 class="" style="margin-bottom: 50px;">Exam1_SNS</h2>
           <div class="">
 
             <div class="">
@@ -18,13 +18,15 @@
               <a href="signin.php">
                 <input type="submit" class="btn btn-info" value="Sign-IN">
               </a>
-            </div>
+              <p style="float: right;">アカウント登録がお済みの方はこちら</p>
+            </div><br>
                   
             <div class="">
               <p>登録</p>
               <a href="register/signup.php">
                 <input type="submit" class="btn btn-success" value="Sign-UP">
               </a>
+              <p style="float: right;">アカウント登録がまだの人はこちら！</p>
             </div>
 
           </div>

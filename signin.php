@@ -51,7 +51,7 @@ if(!empty($_POST)){
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-2 thumbnail">
+      <div class="col-xs-6 col-xs-offset-3 thumbnail">
         <h2 class="text-center content_header">サインイン</h2>
         <form method="POST" action="signin.php" enctype="multipart/form-data">
           <div class="form-group">
@@ -68,10 +68,10 @@ if(!empty($_POST)){
               <p class = "text-danger">サインインに失敗しました</p>
             <?php endif; ?>
           </div>
-          <input type="submit" class="btn btn-info" value="サインイン">
           <span>
             <a href="index.php">トップへ戻る</a>
           </span>
+          <input type="submit" class="btn btn-info" value="サインイン">
         </form>
       </div>
     </div>

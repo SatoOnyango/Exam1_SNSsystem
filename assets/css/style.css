@@ -1,0 +1,26 @@
+.container>.row{
+  margin: 100px;
+}
+
+
+.col-xs-10 ,.col-xs-offset-1,.thumbnail h2{
+  margin-left: auto;
+}
+
+.col-xs-10 ,.col-xs-offset-1,.thumbnail>.row{
+  margin-left: 100px;
+}
+
+.signin-btn>.btn,.btn-info{
+  margin-right: 50px;
+}
+
+.signin-btn>p{
+  margin-left: 100px;
+}
+
+form>span>a{
+  float: right;
+  margin-top: 10px;
+  font-size: 16px;
+}
